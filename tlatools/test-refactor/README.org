@@ -1,0 +1,105 @@
+* NoProcessEmptyBody
+- dummy algorithm with NO body
+- only possible with P syntax
+- should produce the same code with distpcal flag or not - OK
+- doens't parse in Toolbox
+
+* NoProcessNoLabel
+- dummy algorithm with NO processes and No label
+- should produce the same code with distpcal flag or not - OK
+
+* NoProcessOneLabel
+- dummy algorithm with NO processes and ONE label
+- should produce the same code with distpcal flag or not - OK
+
+* NoProcessTwoLabels
+- dummy algorithm with NO processes and TWO labels
+- should produce the same code with distpcal flag or not - OK
+
+
+* OneProcessEmptyThreadP
+- dummy algorithm with ONE processes with EMPTY body
+- only possible with P syntax (?)
+- should produce the same code with distpcal flag or not - OK
+- doens't parse in Toolbox
+
+
+* OneProcessOneThread (one process instance or n process instances)
+- dummy algorithm with ONE process and ONE/TWO labels
+- should produce the same code (except for pc) with distpcal flag or not - OK
+
+* OneProcessOneThread1sC
+- as before but use string identifiers for processes
+
+
+* OneProcessMultiThread -- COPIED
+- with multiple threads
+- C or P
+- id in set
+
+* OneProcessMultiThreadMC
+- use macros
+- and channel operations in the macros
+
+* TwoProcessesOneThread2C
+- dummy algorithm with TWO processes (1 and n instances) and one thread
+- should produce the same code (except for pc) with distpcal flag or not - OK
+- with distpcal flag:
+  /\ \A self \in PROCSet : \A subprocess \in SubProcSet[self] : WF_vars(pid1(self))
+
+* TwoProcessesOneThread2sC
+- as before but use string identifiers for processes
+
+
+* MultiProcessMultiThread1C
+- dummy algorithm with TWO processes (1 and n instances), each with 2 threads
+- parsed in Toolbox
+- TLC OK
+
+
+
+* Clash 
+- dummy algorithm to check how fresh variables are generated 
+-- in SubProcSet
+-- in Init (for channels)
+-- for read/clear operations
+- should change fifo-channel to get the behaviour for both cases
+- if declare variable _n430 we get a parse error 
+  (but no problem for _c159)
+- parsed
+- TLC OK (deadlock)
+	
+* ClashNoChannel
+- same as Clash but no channels
+
+* Clash2D
+- originally for testing fresh variables
+- uses bidimensional channels 
+- has multiple threads
+
+
+* VarAndChannelDecls1C
+- testing channel/fifo declarations local to processes
+- parsed
+- bug (general) for the initialization -> unidimensional array generated
+- funny translation for fifos if send/receive are not atomic 
+  (without Snd2 and Rcv2); doesn't work for channels (because of cur
+  receiver twice)
+
+* Procedures
+- 0p -> uniprocess
+- 1p1s -> one process / one thread
+- 1p2t -> one process / two threads
+- both use the same procedure
+- Rec -> recursive procedure, no channels
+
+* ProceduresWithLV
+- procedures using process local variables
+- parses but error in TLC (with or without distpcal)
+- ProceduresWithLVprocId: use local variables from unique process
+- ProceduresWithLVprocSet: use local variables from process set
+
+* FreshVars
+- check how fresh variables are generated
+- try to declare a variable that will be freshly generated (eg _n42)
+
