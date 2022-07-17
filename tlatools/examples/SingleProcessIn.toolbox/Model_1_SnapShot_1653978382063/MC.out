@@ -1,0 +1,121 @@
+@!@!@STARTMSG 2262:0 @!@!@
+TLC2 Version 2.16 of 31 December 2020 (rev: cdddf55)
+@!@!@ENDMSG 2262 @!@!@
+@!@!@STARTMSG 2187:0 @!@!@
+Running breadth-first search Model-Checking with fp 52 and seed 6037187285295064790 with 2 workers on 4 cores with 1175MB heap and 2641MB offheap memory [pid: 35776] (Windows 10 10.0 amd64, AdoptOpenJDK 14.0.1 x86_64, OffHeapDiskFPSet, DiskStateQueue).
+@!@!@ENDMSG 2187 @!@!@
+@!@!@STARTMSG 2220:0 @!@!@
+Starting SANY...
+@!@!@ENDMSG 2220 @!@!@
+Parsing file C:\Users\zunai\OneDrive\Desktop\DistributedPlusCal-newrelease\tlatools\examples\SingleProcessIn.toolbox\Model_1\MC.tla
+Parsing file C:\Users\zunai\OneDrive\Desktop\DistributedPlusCal-newrelease\tlatools\examples\SingleProcessIn.toolbox\Model_1\SingleProcessIn.tla
+
+Unrecoverable error:
+ -- Command-line error: Unknown or illegal option in options statement: -distpcal..
+
+
+Unrecoverable error:
+ -- Expected "end" but found "begin"
+    line 21, column 1.
+
+!! WARNING: The PlusCal algorithm and its TLA+ translation in module SingleProcessIn filename since the last translation.
+Parsing file C:\Users\zunai\Music\LORIAINTERNWORK\TLAToolbox-1.7.1-win32.win32.x86_64\toolbox\plugins\org.lamport.tlatools_1.0.0.202012311918\tla2sany\StandardModules\TLC.tla
+Parsing file C:\Users\zunai\Music\LORIAINTERNWORK\TLAToolbox-1.7.1-win32.win32.x86_64\toolbox\plugins\org.lamport.tlatools_1.0.0.202012311918\tla2sany\StandardModules\Integers.tla
+Parsing file C:\Users\zunai\Music\LORIAINTERNWORK\TLAToolbox-1.7.1-win32.win32.x86_64\toolbox\plugins\org.lamport.tlatools_1.0.0.202012311918\tla2sany\StandardModules\Sequences.tla
+Parsing file C:\Users\zunai\Music\LORIAINTERNWORK\TLAToolbox-1.7.1-win32.win32.x86_64\toolbox\plugins\org.lamport.tlatools_1.0.0.202012311918\tla2sany\StandardModules\Naturals.tla
+Parsing file C:\Users\zunai\Music\LORIAINTERNWORK\TLAToolbox-1.7.1-win32.win32.x86_64\toolbox\plugins\org.lamport.tlatools_1.0.0.202012311918\tla2sany\StandardModules\FiniteSets.tla
+Semantic processing of module Naturals
+Semantic processing of module Sequences
+Semantic processing of module FiniteSets
+Semantic processing of module TLC
+Semantic processing of module Integers
+Semantic processing of module SingleProcessIn
+Semantic processing of module MC
+@!@!@STARTMSG 2219:0 @!@!@
+SANY finished.
+@!@!@ENDMSG 2219 @!@!@
+@!@!@STARTMSG 2185:0 @!@!@
+Starting... (2022-05-31 06:26:13)
+@!@!@ENDMSG 2185 @!@!@
+@!@!@STARTMSG 2189:0 @!@!@
+Computing initial states...
+@!@!@ENDMSG 2189 @!@!@
+@!@!@STARTMSG 2102:1 @!@!@
+The domains of the parameters must be enumerable.
+While working on the initial state:
+/\ x = defaultInitValue
+/\ pc = [self \in {1, 2, 3}, i \in <<4..5, 4..5>> |-> <expression line 54, col 59 to line 57, col 77 of module SingleProcessIn>]
+
+@!@!@ENDMSG 2102 @!@!@
+@!@!@STARTMSG 2103:1 @!@!@
+The error occurred when TLC was evaluating the nested
+expressions at the following positions:
+0. Line 53, column 9 to line 57, column 78 in SingleProcessIn
+1. Line 53, column 12 to line 53, column 31 in SingleProcessIn
+2. Line 54, column 12 to line 57, column 78 in SingleProcessIn
+
+
+@!@!@ENDMSG 2103 @!@!@
+@!@!@STARTMSG 2201:0 @!@!@
+The coverage statistics at 2022-05-31 06:26:19
+@!@!@ENDMSG 2201 @!@!@
+@!@!@STARTMSG 2773:0 @!@!@
+<Init line 52, col 1 to line 52, col 4 of module SingleProcessIn>: 2:2
+@!@!@ENDMSG 2773 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 53, col 9 to line 57, col 78 of module SingleProcessIn: 2
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<start line 59, col 1 to line 59, col 11 of module SingleProcessIn>: 0:0
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 60, col 19 to line 60, col 26 of module SingleProcessIn: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 61, col 19 to line 61, col 58 of module SingleProcessIn: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<Z line 63, col 1 to line 63, col 7 of module SingleProcessIn>: 0:0
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 64, col 15 to line 64, col 20 of module SingleProcessIn: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 65, col 15 to line 65, col 54 of module SingleProcessIn: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<Lbl_1 line 67, col 1 to line 67, col 14 of module SingleProcessIn>: 0:0
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 68, col 19 to line 68, col 24 of module SingleProcessIn: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 69, col 19 to line 69, col 58 of module SingleProcessIn: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<SProc line 73, col 1 to line 73, col 11 of module SingleProcessIn>: 0:0
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 74, col 19 to line 74, col 28 of module SingleProcessIn: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 75, col 19 to line 75, col 58 of module SingleProcessIn: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<Terminating line 80, col 1 to line 80, col 11 of module SingleProcessIn>: 0:0
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 81, col 19 to line 81, col 32 of module SingleProcessIn: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2202:0 @!@!@
+End of statistics.
+@!@!@ENDMSG 2202 @!@!@
+@!@!@STARTMSG 2200:0 @!@!@
+Progress(1) at 2022-05-31 06:26:20: 1 states generated (2 s/min), 0 distinct states found (0 ds/min), 0 states left on queue.
+@!@!@ENDMSG 2200 @!@!@
+@!@!@STARTMSG 2199:0 @!@!@
+1 states generated, 0 distinct states found, 0 states left on queue.
+@!@!@ENDMSG 2199 @!@!@
+@!@!@STARTMSG 2186:0 @!@!@
+Finished in 21290ms at (2022-05-31 06:26:20)
+@!@!@ENDMSG 2186 @!@!@

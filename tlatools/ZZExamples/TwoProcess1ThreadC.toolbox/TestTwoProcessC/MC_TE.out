@@ -1,0 +1,348 @@
+@!@!@STARTMSG 2262:0 @!@!@
+TLC2 Version 2.16 of 31 December 2020 (rev: cdddf55)
+@!@!@ENDMSG 2262 @!@!@
+@!@!@STARTMSG 2187:0 @!@!@
+Running breadth-first search Model-Checking with fp 75 and seed 2595600270491989502 with 2 workers on 4 cores with 1175MB heap and 2641MB offheap memory [pid: 12396] (Windows 10 10.0 amd64, AdoptOpenJDK 14.0.1 x86_64, OffHeapDiskFPSet, DiskStateQueue).
+@!@!@ENDMSG 2187 @!@!@
+@!@!@STARTMSG 2220:0 @!@!@
+Starting SANY...
+@!@!@ENDMSG 2220 @!@!@
+Parsing file C:\Users\zunai\OneDrive\Desktop\DistributedPlusCal-newrelease\tlatools\ZZExamples\TwoProcess1ThreadC.toolbox\TestTwoProcessC\MC.tla
+Parsing file C:\Users\zunai\OneDrive\Desktop\DistributedPlusCal-newrelease\tlatools\ZZExamples\TwoProcess1ThreadC.toolbox\TestTwoProcessC\TwoProcess1ThreadC.tla
+
+Unrecoverable error:
+ -- Command-line error: Unknown or illegal option in options statement: -distpcal..
+
+
+Unrecoverable error:
+ -- Expected "}" but found "{"
+    line 28, column 1.
+
+!! WARNING: The PlusCal algorithm and its TLA+ translation in module TwoProcess1ThreadC filename since the last translation.
+Parsing file C:\Users\zunai\Music\LORIAINTERNWORK\TLAToolbox-1.7.1-win32.win32.x86_64\toolbox\plugins\org.lamport.tlatools_1.0.0.202012311918\tla2sany\StandardModules\TLC.tla
+Parsing file C:\Users\zunai\Music\LORIAINTERNWORK\TLAToolbox-1.7.1-win32.win32.x86_64\toolbox\plugins\org.lamport.tlatools_1.0.0.202012311918\tla2sany\StandardModules\Naturals.tla
+Parsing file C:\Users\zunai\Music\LORIAINTERNWORK\TLAToolbox-1.7.1-win32.win32.x86_64\toolbox\plugins\org.lamport.tlatools_1.0.0.202012311918\tla2sany\StandardModules\Sequences.tla
+Parsing file C:\Users\zunai\Music\LORIAINTERNWORK\TLAToolbox-1.7.1-win32.win32.x86_64\toolbox\plugins\org.lamport.tlatools_1.0.0.202012311918\tla2sany\StandardModules\FiniteSets.tla
+Semantic processing of module Naturals
+Semantic processing of module Sequences
+Semantic processing of module FiniteSets
+Semantic processing of module TLC
+Semantic processing of module TwoProcess1ThreadC
+Semantic processing of module MC
+@!@!@STARTMSG 2219:0 @!@!@
+SANY finished.
+@!@!@ENDMSG 2219 @!@!@
+@!@!@STARTMSG 2185:0 @!@!@
+Starting... (2022-06-24 10:29:34)
+@!@!@ENDMSG 2185 @!@!@
+@!@!@STARTMSG 2189:0 @!@!@
+Computing initial states...
+@!@!@ENDMSG 2189 @!@!@
+@!@!@STARTMSG 2269:0 @!@!@
+Computed 2 initial states...
+@!@!@ENDMSG 2269 @!@!@
+@!@!@STARTMSG 2269:0 @!@!@
+Computed 4 initial states...
+@!@!@ENDMSG 2269 @!@!@
+@!@!@STARTMSG 2269:0 @!@!@
+Computed 8 initial states...
+@!@!@ENDMSG 2269 @!@!@
+@!@!@STARTMSG 2269:0 @!@!@
+Computed 16 initial states...
+@!@!@ENDMSG 2269 @!@!@
+@!@!@STARTMSG 2269:0 @!@!@
+Computed 32 initial states...
+@!@!@ENDMSG 2269 @!@!@
+@!@!@STARTMSG 2190:0 @!@!@
+Finished computing initial states: 64 distinct states generated at 2022-06-24 10:29:36.
+@!@!@ENDMSG 2190 @!@!@
+@!@!@STARTMSG 2144:3 @!@!@
+The EXCEPT was applied to non-existing fields of the value at
+line 93, col 25 to line 93, col 26 of module TwoProcess1ThreadC
+@!@!@ENDMSG 2144 @!@!@
+@!@!@STARTMSG 2114:1 @!@!@
+Deadlock reached.
+@!@!@ENDMSG 2114 @!@!@
+@!@!@STARTMSG 2121:1 @!@!@
+The behavior up to this point is:
+@!@!@ENDMSG 2121 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+1: <Initial predicate>
+/\ ar = <<0, 0>>
+/\ found = FALSE
+/\ i = 1
+/\ x = 0
+/\ pc = ( <<1>> :> "One" @@
+  <<2>> :> "One" @@
+  <<4>> :> "Three" @@
+  <<5>> :> "Three" @@
+  <<1, 1>> :> "Z" @@
+  <<2, 1>> :> "Z" )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+2: <One line 67, col 14 to line 70, col 40 of module TwoProcess1ThreadC>
+/\ ar = <<0, 0>>
+/\ found = TRUE
+/\ i = 1
+/\ x = 0
+/\ pc = ( <<1>> :> "Two" @@
+  <<2>> :> "One" @@
+  <<4>> :> "Three" @@
+  <<5>> :> "Three" @@
+  <<1, 1>> :> "Z" @@
+  <<2, 1>> :> "Z" )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+3: <One line 67, col 14 to line 70, col 40 of module TwoProcess1ThreadC>
+/\ ar = <<0, 0>>
+/\ found = TRUE
+/\ i = 1
+/\ x = 0
+/\ pc = ( <<1>> :> "Two" @@
+  <<2>> :> "Two" @@
+  <<4>> :> "Three" @@
+  <<5>> :> "Three" @@
+  <<1, 1>> :> "Z" @@
+  <<2, 1>> :> "Z" )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+4: <Two line 72, col 14 to line 75, col 44 of module TwoProcess1ThreadC>
+/\ ar = <<0, 0>>
+/\ found = TRUE
+/\ i = 2
+/\ x = 0
+/\ pc = ( <<1>> :> "Two" @@
+  <<2>> :> "Done" @@
+  <<4>> :> "Three" @@
+  <<5>> :> "Three" @@
+  <<1, 1>> :> "Z" @@
+  <<2, 1>> :> "Z" )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+5: <Two line 72, col 14 to line 75, col 44 of module TwoProcess1ThreadC>
+/\ ar = <<0, 0>>
+/\ found = TRUE
+/\ i = 3
+/\ x = 0
+/\ pc = ( <<1>> :> "Done" @@
+  <<2>> :> "Done" @@
+  <<4>> :> "Three" @@
+  <<5>> :> "Three" @@
+  <<1, 1>> :> "Z" @@
+  <<2, 1>> :> "Z" )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+6: <Z line 77, col 12 to line 80, col 42 of module TwoProcess1ThreadC>
+/\ ar = <<0, 0>>
+/\ found = TRUE
+/\ i = 4
+/\ x = 0
+/\ pc = ( <<1>> :> "Done" @@
+  <<2>> :> "Done" @@
+  <<4>> :> "Three" @@
+  <<5>> :> "Three" @@
+  <<1, 1>> :> "Done" @@
+  <<2, 1>> :> "Z" )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+7: <Z line 77, col 12 to line 80, col 42 of module TwoProcess1ThreadC>
+/\ ar = <<0, 0>>
+/\ found = TRUE
+/\ i = 5
+/\ x = 0
+/\ pc = ( <<1>> :> "Done" @@
+  <<2>> :> "Done" @@
+  <<4>> :> "Three" @@
+  <<5>> :> "Three" @@
+  <<1, 1>> :> "Done" @@
+  <<2, 1>> :> "Done" )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+8: <Three line 87, col 16 to line 90, col 46 of module TwoProcess1ThreadC>
+/\ ar = <<0, 0>>
+/\ found = TRUE
+/\ i = 5
+/\ x = 0
+/\ pc = ( <<1>> :> "Done" @@
+  <<2>> :> "Done" @@
+  <<4>> :> "Three" @@
+  <<5>> :> "Four" @@
+  <<1, 1>> :> "Done" @@
+  <<2, 1>> :> "Done" )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+9: <Three line 87, col 16 to line 90, col 46 of module TwoProcess1ThreadC>
+/\ ar = <<0, 0>>
+/\ found = TRUE
+/\ i = 5
+/\ x = 0
+/\ pc = ( <<1>> :> "Done" @@
+  <<2>> :> "Done" @@
+  <<4>> :> "Four" @@
+  <<5>> :> "Four" @@
+  <<1, 1>> :> "Done" @@
+  <<2, 1>> :> "Done" )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+10: <Four line 92, col 15 to line 95, col 44 of module TwoProcess1ThreadC>
+/\ ar = <<0, 0>>
+/\ found = TRUE
+/\ i = 5
+/\ x = 0
+/\ pc = ( <<1>> :> "Done" @@
+  <<2>> :> "Done" @@
+  <<4>> :> "Four" @@
+  <<5>> :> "Done" @@
+  <<1, 1>> :> "Done" @@
+  <<2, 1>> :> "Done" )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+11: <Four line 92, col 15 to line 95, col 44 of module TwoProcess1ThreadC>
+/\ ar = <<0, 0>>
+/\ found = TRUE
+/\ i = 5
+/\ x = 0
+/\ pc = ( <<1>> :> "Done" @@
+  <<2>> :> "Done" @@
+  <<4>> :> "Done" @@
+  <<5>> :> "Done" @@
+  <<1, 1>> :> "Done" @@
+  <<2, 1>> :> "Done" )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2201:0 @!@!@
+The coverage statistics at 2022-06-24 10:29:38
+@!@!@ENDMSG 2201 @!@!@
+@!@!@STARTMSG 2773:0 @!@!@
+<Init line 58, col 1 to line 58, col 4 of module TwoProcess1ThreadC>: 128:128
+@!@!@ENDMSG 2773 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 59, col 12 to line 59, col 39 of module TwoProcess1ThreadC: 2
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 60, col 12 to line 60, col 26 of module TwoProcess1ThreadC: 32
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 61, col 12 to line 61, col 24 of module TwoProcess1ThreadC: 128
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 63, col 12 to line 65, col 51 of module TwoProcess1ThreadC: 128
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<One line 67, col 1 to line 67, col 9 of module TwoProcess1ThreadC>: 284:5360
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 67, col 17 to line 67, col 37 of module TwoProcess1ThreadC: 21910
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 67, col 17 to line 67, col 29 of module TwoProcess1ThreadC: 16550
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 68, col 17 to line 68, col 29 of module TwoProcess1ThreadC: 5360
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 69, col 17 to line 69, col 53 of module TwoProcess1ThreadC: 5360
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 70, col 17 to line 70, col 40 of module TwoProcess1ThreadC: 5360
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<Two line 72, col 1 to line 72, col 9 of module TwoProcess1ThreadC>: 605:5362
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 72, col 17 to line 72, col 37 of module TwoProcess1ThreadC: 21910
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 72, col 17 to line 72, col 29 of module TwoProcess1ThreadC: 16548
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 73, col 17 to line 73, col 26 of module TwoProcess1ThreadC: 5362
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 74, col 17 to line 74, col 54 of module TwoProcess1ThreadC: 5362
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 75, col 17 to line 75, col 44 of module TwoProcess1ThreadC: 5362
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<Z line 77, col 1 to line 77, col 7 of module TwoProcess1ThreadC>: 3180:7874
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 77, col 15 to line 77, col 36 of module TwoProcess1ThreadC: 24417
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 77, col 15 to line 77, col 30 of module TwoProcess1ThreadC: 16543
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 78, col 15 to line 78, col 24 of module TwoProcess1ThreadC: 7874
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 79, col 15 to line 79, col 55 of module TwoProcess1ThreadC: 7874
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 80, col 15 to line 80, col 42 of module TwoProcess1ThreadC: 7874
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<Three line 87, col 1 to line 87, col 11 of module TwoProcess1ThreadC>: 2217:7467
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 87, col 19 to line 87, col 41 of module TwoProcess1ThreadC: 24005
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 87, col 19 to line 87, col 31 of module TwoProcess1ThreadC: 16538
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 88, col 19 to line 88, col 28 of module TwoProcess1ThreadC: 7467
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 89, col 19 to line 89, col 56 of module TwoProcess1ThreadC: 7467
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 90, col 19 to line 90, col 46 of module TwoProcess1ThreadC: 7467
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<Four line 92, col 1 to line 92, col 10 of module TwoProcess1ThreadC>: 1942:4011
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 92, col 18 to line 92, col 39 of module TwoProcess1ThreadC: 20547
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 92, col 18 to line 92, col 30 of module TwoProcess1ThreadC: 16536
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 93, col 18 to line 93, col 43 of module TwoProcess1ThreadC: 4011
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 94, col 18 to line 94, col 55 of module TwoProcess1ThreadC: 4011
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 95, col 18 to line 95, col 44 of module TwoProcess1ThreadC: 4011
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2202:0 @!@!@
+End of statistics.
+@!@!@ENDMSG 2202 @!@!@
+@!@!@STARTMSG 2200:0 @!@!@
+Progress(11) at 2022-06-24 10:29:38: 30,124 states generated (402,189 s/min), 8,292 distinct states found (110,707 ds/min), 26 states left on queue.
+@!@!@ENDMSG 2200 @!@!@
+@!@!@STARTMSG 2199:0 @!@!@
+30124 states generated, 8292 distinct states found, 26 states left on queue.
+@!@!@ENDMSG 2199 @!@!@
+@!@!@STARTMSG 2194:0 @!@!@
+The depth of the complete state graph search is 11.
+@!@!@ENDMSG 2194 @!@!@
+@!@!@STARTMSG 2268:0 @!@!@
+The average outdegree of the complete state graph is 1 (minimum is 0, the maximum 6 and the 95th percentile is 3).
+@!@!@ENDMSG 2268 @!@!@
+@!@!@STARTMSG 2186:0 @!@!@
+Finished in 4510ms at (2022-06-24 10:29:38)
+@!@!@ENDMSG 2186 @!@!@

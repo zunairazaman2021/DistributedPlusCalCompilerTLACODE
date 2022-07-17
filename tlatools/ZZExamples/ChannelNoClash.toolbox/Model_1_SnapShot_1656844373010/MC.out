@@ -1,0 +1,388 @@
+@!@!@STARTMSG 2262:0 @!@!@
+TLC2 Version 2.16 of 31 December 2020 (rev: cdddf55)
+@!@!@ENDMSG 2262 @!@!@
+@!@!@STARTMSG 2187:0 @!@!@
+Running breadth-first search Model-Checking with fp 84 and seed -9030613726980842680 with 2 workers on 4 cores with 1175MB heap and 2641MB offheap memory [pid: 112896] (Windows 10 10.0 amd64, AdoptOpenJDK 14.0.1 x86_64, OffHeapDiskFPSet, DiskStateQueue).
+@!@!@ENDMSG 2187 @!@!@
+@!@!@STARTMSG 2220:0 @!@!@
+Starting SANY...
+@!@!@ENDMSG 2220 @!@!@
+Parsing file C:\Users\zunai\OneDrive\Desktop\DistributedPlusCal-newrelease\tlatools\ZZExamples\ChannelNoClash.toolbox\Model_1\MC.tla
+Parsing file C:\Users\zunai\OneDrive\Desktop\DistributedPlusCal-newrelease\tlatools\ZZExamples\ChannelNoClash.toolbox\Model_1\ChannelNoClash.tla
+
+Unrecoverable error:
+ -- Command-line error: Unknown or illegal option in options statement: -distpcal..
+
+
+Unrecoverable error:
+ -- Expected "{" but found "fifos"
+    line 8, column 4.
+
+!! WARNING: The PlusCal algorithm and its TLA+ translation in module ChannelNoClash filename since the last translation.
+Parsing file C:\Users\zunai\Music\LORIAINTERNWORK\TLAToolbox-1.7.1-win32.win32.x86_64\toolbox\plugins\org.lamport.tlatools_1.0.0.202012311918\tla2sany\StandardModules\TLC.tla
+Parsing file C:\Users\zunai\Music\LORIAINTERNWORK\TLAToolbox-1.7.1-win32.win32.x86_64\toolbox\plugins\org.lamport.tlatools_1.0.0.202012311918\tla2sany\StandardModules\Naturals.tla
+Parsing file C:\Users\zunai\Music\LORIAINTERNWORK\TLAToolbox-1.7.1-win32.win32.x86_64\toolbox\plugins\org.lamport.tlatools_1.0.0.202012311918\tla2sany\StandardModules\Sequences.tla
+Parsing file C:\Users\zunai\Music\LORIAINTERNWORK\TLAToolbox-1.7.1-win32.win32.x86_64\toolbox\plugins\org.lamport.tlatools_1.0.0.202012311918\tla2sany\StandardModules\FiniteSets.tla
+Semantic processing of module Naturals
+Semantic processing of module Sequences
+Semantic processing of module FiniteSets
+Semantic processing of module TLC
+Semantic processing of module ChannelNoClash
+Semantic processing of module MC
+@!@!@STARTMSG 2219:0 @!@!@
+SANY finished.
+@!@!@ENDMSG 2219 @!@!@
+@!@!@STARTMSG 2185:0 @!@!@
+Starting... (2022-07-03 10:32:50)
+@!@!@ENDMSG 2185 @!@!@
+@!@!@STARTMSG 2189:0 @!@!@
+Computing initial states...
+@!@!@ENDMSG 2189 @!@!@
+@!@!@STARTMSG 2190:0 @!@!@
+Finished computing initial states: 1 distinct state generated at 2022-07-03 10:32:51.
+@!@!@ENDMSG 2190 @!@!@
+@!@!@STARTMSG 1000:1 @!@!@
+TLC threw an unexpected exception.
+This was probably caused by an error in the spec or model.
+See the User Output or TLC Console for clues to what happened.
+The exception was a java.lang.RuntimeException
+: Attempted to check equality of the function <<1, 0>> with the value:
+0
+@!@!@ENDMSG 1000 @!@!@
+@!@!@STARTMSG 2121:1 @!@!@
+The behavior up to this point is:
+@!@!@ENDMSG 2121 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+1: <Initial predicate>
+/\ network = (<<1, 1>> :> <<>> @@ <<1, 2>> :> <<>> @@ <<2, 1>> :> <<>> @@ <<2, 2>> :> <<>>)
+/\ sndr = <<defaultInitValue, defaultInitValue>>
+/\ req = <<<<0, 0>>, <<0, 0>>>>
+/\ msg = <<defaultInitValue, defaultInitValue>>
+/\ ack = <<{}, {}>>
+/\ pc = (<<1>> :> "ncs" @@ <<2>> :> "ncs" @@ <<1, 1>> :> "rcv" @@ <<2, 1>> :> "rcv")
+/\ clock = <<0, 0>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+2: <ncs line 81, col 14 to line 84, col 67 of module ChannelNoClash>
+/\ network = (<<1, 1>> :> <<>> @@ <<1, 2>> :> <<>> @@ <<2, 1>> :> <<>> @@ <<2, 2>> :> <<>>)
+/\ sndr = <<defaultInitValue, defaultInitValue>>
+/\ req = <<<<0, 0>>, <<0, 0>>>>
+/\ msg = <<defaultInitValue, defaultInitValue>>
+/\ ack = <<{}, {}>>
+/\ pc = (<<1>> :> "try" @@ <<2>> :> "ncs" @@ <<1, 1>> :> "rcv" @@ <<2, 1>> :> "rcv")
+/\ clock = <<0, 0>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+3: <try line 86, col 14 to line 94, col 41 of module ChannelNoClash>
+/\ network = ( <<1, 1>> :> <<[clock |-> 1, type |-> "request"]>> @@
+  <<1, 2>> :> <<[clock |-> 1, type |-> "request"]>> @@
+  <<2, 1>> :> <<>> @@
+  <<2, 2>> :> <<>> )
+/\ sndr = <<defaultInitValue, defaultInitValue>>
+/\ req = <<<<1, 0>>, <<0, 0>>>>
+/\ msg = <<defaultInitValue, defaultInitValue>>
+/\ ack = <<{1}, {}>>
+/\ pc = (<<1>> :> "enter" @@ <<2>> :> "ncs" @@ <<1, 1>> :> "rcv" @@ <<2, 1>> :> "rcv")
+/\ clock = <<1, 0>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+4: <rcv line 114, col 14 to line 122, col 40 of module ChannelNoClash>
+/\ network = ( <<1, 1>> :> <<[clock |-> 1, type |-> "request"]>> @@
+  <<1, 2>> :> <<>> @@
+  <<2, 1>> :> <<>> @@
+  <<2, 2>> :> <<>> )
+/\ sndr = <<defaultInitValue, 1>>
+/\ req = <<<<1, 0>>, <<0, 0>>>>
+/\ msg = <<defaultInitValue, [clock |-> 1, type |-> "request"]>>
+/\ ack = <<{1}, {}>>
+/\ pc = ( <<1>> :> "enter" @@
+  <<2>> :> "ncs" @@
+  <<1, 1>> :> "rcv" @@
+  <<2, 1>> :> "handle" )
+/\ clock = <<1, 2>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+5: <handle line 124, col 17 to line 139, col 51 of module ChannelNoClash>
+/\ network = ( <<1, 1>> :> <<[clock |-> 1, type |-> "request"]>> @@
+  <<1, 2>> :> <<>> @@
+  <<2, 1>> :> <<[clock |-> 2, type |-> "ack"]>> @@
+  <<2, 2>> :> <<>> )
+/\ sndr = <<defaultInitValue, 1>>
+/\ req = <<<<1, 0>>, <<1, 0>>>>
+/\ msg = <<defaultInitValue, [clock |-> 1, type |-> "request"]>>
+/\ ack = <<{1}, {}>>
+/\ pc = (<<1>> :> "enter" @@ <<2>> :> "ncs" @@ <<1, 1>> :> "rcv" @@ <<2, 1>> :> "rcv")
+/\ clock = <<1, 2>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+6: <rcv line 114, col 14 to line 122, col 40 of module ChannelNoClash>
+/\ network = ( <<1, 1>> :> <<[clock |-> 1, type |-> "request"]>> @@
+  <<1, 2>> :> <<>> @@
+  <<2, 1>> :> <<>> @@
+  <<2, 2>> :> <<>> )
+/\ sndr = <<2, 1>>
+/\ req = <<<<1, 0>>, <<1, 0>>>>
+/\ msg = <<[clock |-> 2, type |-> "ack"], [clock |-> 1, type |-> "request"]>>
+/\ ack = <<{1}, {}>>
+/\ pc = ( <<1>> :> "enter" @@
+  <<2>> :> "ncs" @@
+  <<1, 1>> :> "handle" @@
+  <<2, 1>> :> "rcv" )
+/\ clock = <<3, 2>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+7: <handle line 124, col 17 to line 139, col 51 of module ChannelNoClash>
+/\ network = ( <<1, 1>> :> <<[clock |-> 1, type |-> "request"]>> @@
+  <<1, 2>> :> <<>> @@
+  <<2, 1>> :> <<>> @@
+  <<2, 2>> :> <<>> )
+/\ sndr = <<2, 1>>
+/\ req = <<<<1, 0>>, <<1, 0>>>>
+/\ msg = <<[clock |-> 2, type |-> "ack"], [clock |-> 1, type |-> "request"]>>
+/\ ack = <<{1, 2}, {}>>
+/\ pc = (<<1>> :> "enter" @@ <<2>> :> "ncs" @@ <<1, 1>> :> "rcv" @@ <<2, 1>> :> "rcv")
+/\ clock = <<3, 2>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2103:1 @!@!@
+The error occurred when TLC was evaluating the nested
+expressions at the following positions:
+0. Line 96, column 16 to line 99, column 69 in ChannelNoClash
+1. Line 96, column 19 to line 96, column 41 in ChannelNoClash
+2. Line 97, column 20 to line 97, column 80 in ChannelNoClash
+3. Line 97, column 20 to line 97, column 36 in ChannelNoClash
+4. Line 97, column 41 to line 97, column 80 in ChannelNoClash
+5. Line 97, column 67 to line 97, column 80 in ChannelNoClash
+6. Line 73, column 15 to line 74, column 62 in ChannelNoClash
+7. Line 73, column 18 to line 73, column 27 in ChannelNoClash
+
+
+@!@!@ENDMSG 2103 @!@!@
+@!@!@STARTMSG 2201:0 @!@!@
+The coverage statistics at 2022-07-03 10:32:51
+@!@!@ENDMSG 2201 @!@!@
+@!@!@STARTMSG 2773:0 @!@!@
+<Init line 60, col 1 to line 60, col 4 of module ChannelNoClash>: 2:2
+@!@!@ENDMSG 2773 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 61, col 9 to line 69, col 56 of module ChannelNoClash: 2
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<ncs line 81, col 1 to line 81, col 9 of module ChannelNoClash>: 4:23
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 81, col 17 to line 81, col 37 of module ChannelNoClash: 151
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 81, col 17 to line 81, col 29 of module ChannelNoClash: 128
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 82, col 17 to line 82, col 20 of module ChannelNoClash: 23
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 83, col 17 to line 83, col 53 of module ChannelNoClash: 23
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 84, col 17 to line 84, col 67 of module ChannelNoClash: 23
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<try line 86, col 1 to line 86, col 9 of module ChannelNoClash>: 11:22
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 86, col 17 to line 86, col 37 of module ChannelNoClash: 149
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 86, col 17 to line 86, col 29 of module ChannelNoClash: 127
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 87, col 17 to line 87, col 65 of module ChannelNoClash: 22
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 88, col 17 to line 88, col 64 of module ChannelNoClash: 22
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 89, col 17 to line 89, col 52 of module ChannelNoClash: 22
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 90, col 17 to line 92, col 98 of module ChannelNoClash: 22
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 93, col 17 to line 93, col 55 of module ChannelNoClash: 22
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 94, col 17 to line 94, col 41 of module ChannelNoClash: 22
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<enter line 96, col 1 to line 96, col 11 of module ChannelNoClash>: 0:0
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 96, col 19 to line 96, col 41 of module ChannelNoClash: 126
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 97, col 20 to line 97, col 36 of module ChannelNoClash: 83
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 97, col 41 to line 97, col 80 of module ChannelNoClash: 2
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 98, col 19 to line 98, col 54 of module ChannelNoClash: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 99, col 19 to line 99, col 69 of module ChannelNoClash: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<cs line 101, col 1 to line 101, col 8 of module ChannelNoClash>: 0:0
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 101, col 16 to line 101, col 35 of module ChannelNoClash: 124
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 103, col 16 to line 103, col 53 of module ChannelNoClash: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 104, col 16 to line 104, col 66 of module ChannelNoClash: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<exit line 106, col 1 to line 106, col 10 of module ChannelNoClash>: 0:0
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 106, col 18 to line 106, col 39 of module ChannelNoClash: 124
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 107, col 18 to line 107, col 66 of module ChannelNoClash: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 108, col 18 to line 110, col 97 of module ChannelNoClash: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 111, col 18 to line 111, col 54 of module ChannelNoClash: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 112, col 18 to line 112, col 52 of module ChannelNoClash: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<rcv line 114, col 1 to line 114, col 9 of module ChannelNoClash>: 52:80
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 114, col 17 to line 114, col 40 of module ChannelNoClash: 179
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 114, col 17 to line 114, col 32 of module ChannelNoClash: 122
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 116, col 22 to line 116, col 45 of module ChannelNoClash: 80
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 116, col 22 to line 116, col 41 of module ChannelNoClash: 150
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 117, col 22 to line 117, col 72 of module ChannelNoClash: 80
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 118, col 22 to line 118, col 70 of module ChannelNoClash: 80
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 119, col 22 to line 119, col 54 of module ChannelNoClash: 80
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 120, col 22 to line 120, col 93 of module ChannelNoClash: 80
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 120, col 31 to line 120, col 93 of module ChannelNoClash: 80
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 120, col 32 to line 120, col 36 of module ChannelNoClash: 80
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 120, col 45 to line 120, col 92 of module ChannelNoClash: 80
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 120, col 55 to line 120, col 92 of module ChannelNoClash: 80
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||line 120, col 55 to line 120, col 88 of module ChannelNoClash: 80
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||||line 72, col 13 to line 72, col 34 of module ChannelNoClash: 80
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||||line 72, col 16 to line 72, col 20 of module ChannelNoClash: 80
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||||line 72, col 27 to line 72, col 27 of module ChannelNoClash: 4
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||||line 72, col 34 to line 72, col 34 of module ChannelNoClash: 76
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||||line 120, col 59 to line 120, col 69 of module ChannelNoClash: 80
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||||line 120, col 72 to line 120, col 87 of module ChannelNoClash: 156
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 115, col 26 to line 115, col 30 of module ChannelNoClash: 75
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 121, col 17 to line 121, col 59 of module ChannelNoClash: 80
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 122, col 17 to line 122, col 40 of module ChannelNoClash: 80
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<handle line 124, col 1 to line 124, col 12 of module ChannelNoClash>: 34:47
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 124, col 20 to line 124, col 46 of module ChannelNoClash: 167
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 124, col 20 to line 124, col 35 of module ChannelNoClash: 120
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 125, col 23 to line 125, col 48 of module ChannelNoClash: 47
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 126, col 28 to line 128, col 40 of module ChannelNoClash: 40
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 129, col 34 to line 129, col 55 of module ChannelNoClash: 7
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 130, col 39 to line 131, col 51 of module ChannelNoClash: 7
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 133, col 53 to line 133, col 95 of module ChannelNoClash: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 135, col 53 to line 135, col 62 of module ChannelNoClash: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 136, col 42 to line 136, col 51 of module ChannelNoClash: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 137, col 31 to line 137, col 47 of module ChannelNoClash: 7
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 138, col 20 to line 138, col 59 of module ChannelNoClash: 47
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 139, col 20 to line 139, col 51 of module ChannelNoClash: 47
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2202:0 @!@!@
+End of statistics.
+@!@!@ENDMSG 2202 @!@!@
+@!@!@STARTMSG 2200:0 @!@!@
+Progress(8) at 2022-07-03 10:32:51: 160 states generated (2,883 s/min), 102 distinct states found (1,838 ds/min), 43 states left on queue.
+@!@!@ENDMSG 2200 @!@!@
+@!@!@STARTMSG 2199:0 @!@!@
+160 states generated, 102 distinct states found, 43 states left on queue.
+@!@!@ENDMSG 2199 @!@!@
+@!@!@STARTMSG 2186:0 @!@!@
+Finished in 3341ms at (2022-07-03 10:32:51)
+@!@!@ENDMSG 2186 @!@!@
