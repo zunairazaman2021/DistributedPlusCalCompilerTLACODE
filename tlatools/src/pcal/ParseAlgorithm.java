@@ -868,7 +868,6 @@ public class ParseAlgorithm
               GobbleEqualOrIf() ;
               thread.id   = result.id;
               thread.replicate = GetExpr(); 
-              System.out.println("my replication output"+thread.replicate);
               if (cSyntax) { GobbleThis(")") ; } ;
           if (thread.replicate.tokens.size()==0)
           { ParsingError("Empty replicated thread id at ") ;}

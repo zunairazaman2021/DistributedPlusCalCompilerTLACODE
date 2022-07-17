@@ -1,0 +1,134 @@
+@!@!@STARTMSG 2262:0 @!@!@
+TLC2 Version 2.16 of 31 December 2020 (rev: cdddf55)
+@!@!@ENDMSG 2262 @!@!@
+@!@!@STARTMSG 2187:0 @!@!@
+Running breadth-first search Model-Checking with fp 29 and seed 6457926235502763573 with 2 workers on 4 cores with 1175MB heap and 2641MB offheap memory [pid: 134304] (Windows 10 10.0 amd64, AdoptOpenJDK 14.0.1 x86_64, OffHeapDiskFPSet, DiskStateQueue).
+@!@!@ENDMSG 2187 @!@!@
+@!@!@STARTMSG 2220:0 @!@!@
+Starting SANY...
+@!@!@ENDMSG 2220 @!@!@
+Parsing file C:\Users\zunai\OneDrive\Desktop\DistributedPlusCal-newrelease\tlatools\ZZExamples\ChannelNoClash.toolbox\Model_1\MC.tla
+Parsing file C:\Users\zunai\OneDrive\Desktop\DistributedPlusCal-newrelease\tlatools\ZZExamples\ChannelNoClash.toolbox\Model_1\ChannelNoClash.tla
+
+Unrecoverable error:
+ -- Command-line error: Unknown or illegal option in options statement: -distpcal..
+
+
+Unrecoverable error:
+ -- Expected "{" but found "channels"
+    line 15, column 3.
+
+!! WARNING: The PlusCal algorithm and its TLA+ translation in module ChannelNoClash filename since the last translation.
+Parsing file C:\Users\zunai\Music\LORIAINTERNWORK\TLAToolbox-1.7.1-win32.win32.x86_64\toolbox\plugins\org.lamport.tlatools_1.0.0.202012311918\tla2sany\StandardModules\TLC.tla
+Parsing file C:\Users\zunai\Music\LORIAINTERNWORK\TLAToolbox-1.7.1-win32.win32.x86_64\toolbox\plugins\org.lamport.tlatools_1.0.0.202012311918\tla2sany\StandardModules\Sequences.tla
+Parsing file C:\Users\zunai\Music\LORIAINTERNWORK\TLAToolbox-1.7.1-win32.win32.x86_64\toolbox\plugins\org.lamport.tlatools_1.0.0.202012311918\tla2sany\StandardModules\Naturals.tla
+Parsing file C:\Users\zunai\Music\LORIAINTERNWORK\TLAToolbox-1.7.1-win32.win32.x86_64\toolbox\plugins\org.lamport.tlatools_1.0.0.202012311918\tla2sany\StandardModules\FiniteSets.tla
+Semantic processing of module Naturals
+Semantic processing of module Sequences
+Semantic processing of module ChannelNoClash
+Semantic processing of module FiniteSets
+Semantic processing of module TLC
+Semantic processing of module MC
+@!@!@STARTMSG 2219:0 @!@!@
+SANY finished.
+@!@!@ENDMSG 2219 @!@!@
+@!@!@STARTMSG 2185:0 @!@!@
+Starting... (2022-07-03 10:15:08)
+@!@!@ENDMSG 2185 @!@!@
+@!@!@STARTMSG 2189:0 @!@!@
+Computing initial states...
+@!@!@ENDMSG 2189 @!@!@
+@!@!@STARTMSG 1000:1 @!@!@
+TLC encountered a non-enumerable quantifier bound
+2.
+line 70, col 29 to line 70, col 33 of module ChannelNoClash
+@!@!@ENDMSG 1000 @!@!@
+@!@!@STARTMSG 2103:1 @!@!@
+The error occurred when TLC was evaluating the nested
+expressions at the following positions:
+0. Line 79, column 9 to line 90, column 55 in ChannelNoClash
+1. Line 79, column 12 to line 79, column 21 in ChannelNoClash
+2. Line 80, column 12 to line 80, column 40 in ChannelNoClash
+3. Line 82, column 12 to line 82, column 50 in ChannelNoClash
+4. Line 84, column 12 to line 84, column 29 in ChannelNoClash
+5. Line 85, column 12 to line 85, column 23 in ChannelNoClash
+6. Line 86, column 12 to line 86, column 19 in ChannelNoClash
+7. Line 87, column 12 to line 90, column 55 in ChannelNoClash
+8. Line 87, column 17 to line 90, column 55 in ChannelNoClash
+9. Line 87, column 27 to line 87, column 100 in ChannelNoClash
+10. Line 87, column 27 to line 87, column 76 in ChannelNoClash
+11. Line 87, column 27 to line 87, column 59 in ChannelNoClash
+12. Line 87, column 27 to line 87, column 35 in ChannelNoClash
+13. Line 70, column 14 to line 70, column 35 in ChannelNoClash
+
+
+@!@!@ENDMSG 2103 @!@!@
+@!@!@STARTMSG 2201:0 @!@!@
+The coverage statistics at 2022-07-03 10:15:09
+@!@!@ENDMSG 2201 @!@!@
+@!@!@STARTMSG 2773:0 @!@!@
+<Init line 78, col 1 to line 78, col 4 of module ChannelNoClash>: 0:0
+@!@!@ENDMSG 2773 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 79, col 9 to line 90, col 55 of module ChannelNoClash: 2
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<Next line 157, col 1 to line 157, col 4 of module ChannelNoClash (157 16 157 41)>: 0:0
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 95, col 32 to line 95, col 69 of module ChannelNoClash: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 96, col 32 to line 96, col 84 of module ChannelNoClash: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 98, col 27 to line 98, col 55 of module ChannelNoClash: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 99, col 16 to line 99, col 51 of module ChannelNoClash: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 100, col 16 to line 100, col 56 of module ChannelNoClash: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 104, col 16 to line 104, col 53 of module ChannelNoClash: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 105, col 16 to line 105, col 71 of module ChannelNoClash: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<Next line 157, col 1 to line 157, col 4 of module ChannelNoClash (158 15 158 44)>: 0:0
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 110, col 21 to line 110, col 62 of module ChannelNoClash: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 111, col 21 to line 111, col 62 of module ChannelNoClash: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 112, col 16 to line 112, col 54 of module ChannelNoClash: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 113, col 16 to line 113, col 58 of module ChannelNoClash: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 116, col 16 to line 116, col 44 of module ChannelNoClash: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 117, col 16 to line 117, col 56 of module ChannelNoClash: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 118, col 16 to line 118, col 66 of module ChannelNoClash: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2202:0 @!@!@
+End of statistics.
+@!@!@ENDMSG 2202 @!@!@
+@!@!@STARTMSG 2200:0 @!@!@
+Progress(1) at 2022-07-03 10:15:09: 0 states generated (0 s/min), 0 distinct states found (0 ds/min), 0 states left on queue.
+@!@!@ENDMSG 2200 @!@!@
+@!@!@STARTMSG 2199:0 @!@!@
+0 states generated, 0 distinct states found, 0 states left on queue.
+@!@!@ENDMSG 2199 @!@!@
+@!@!@STARTMSG 2186:0 @!@!@
+Finished in 2643ms at (2022-07-03 10:15:09)
+@!@!@ENDMSG 2186 @!@!@

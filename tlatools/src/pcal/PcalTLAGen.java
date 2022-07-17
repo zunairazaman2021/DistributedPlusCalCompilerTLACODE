@@ -45,6 +45,8 @@ public class PcalTLAGen
     private static int varProcsI= 1; //ZZ Code
     public int varSinglyI= 1; //ZZ Code
     private static int varThreading = 1; //ZZ Code
+    private static int varSub = 0; //ZZ Code
+    private static int varSubNext = 0; //ZZ Code
     private static int varReplicate = 0; //ZZ Code
     private static int varReplicateNext = 0; //ZZ Code
     private static int countpcIndex = 0; //ZZ Code
@@ -301,8 +303,8 @@ public class PcalTLAGen
             GenLabeledStmt(ls, "");
         }
         GenNext();
-        GenSpec();
-        GenTermination();
+       //ZZ Code GenSpec();
+       //ZZ Code GenTermination();
     }
 
     private void GenMultiprocess(AST.Multiprocess ast, String context) throws PcalTLAGenException
@@ -313,9 +315,9 @@ public class PcalTLAGen
         GenProcsNewRelease();
        //ZZ Code No Need of GenSubProcSet() method
         //For Distributed PlusCal
-       if(PcalParams.distpcalFlag) {
-          GenSubProcSet();
-        } 
+     //if(PcalParams.distpcalFlag) {
+     //    GenSubProcSet();
+     //  } 
         // end For Distributed PlusCal
         GenInit(ast.decls, ast.prcds, ast.procs);
         for (int i = 0; i < ast.prcds.size(); i++)
@@ -324,7 +326,7 @@ public class PcalTLAGen
             GenProcess((AST.Process) ast.procs.elementAt(i), "");
         GenNext();
         GenSpec();
-        GenTermination();
+      //ZZ Code  GenTermination();
     }
 
     private void GenProcedure(AST.Procedure ast, String context) throws PcalTLAGenException {
@@ -493,6 +495,40 @@ public class PcalTLAGen
       //  addOneLineOfTLA(""); 
         
 }
+
+private void GenSubThreadSet(AST.Thread thread, String context, String astname) throws PcalTLAGenException
+{
+    varSub = varSub + 1;
+    StringBuffer buf = new StringBuffer(astname+"sub"+varSub+"(self)  == ");
+    String indentSpaces;
+    addOneLineOfTLA("");
+    addLeftParen(thread.getOrigin());
+    addOneTokenToTLA(buf.toString());
+    indentSpaces = NSpaces(buf.length() + 2); 
+   
+    //For Distributed PlusCal
+        //iterate the threads of each node
+        if (thread.name ==""){
+        for (int i = 0; i < thread.body.size(); i++) {
+          AST.LabeledStmt stmt = (AST.LabeledStmt) thread.body.elementAt(i);
+          
+          String disjunct = stmt.label + "(self)";
+          if (   i != 0
+                 && tlacodeNextLine.length() + 7 /* the 7 was obtained empirically */
+                 + disjunct.length() > wrapColumn) {
+            endCurrentLineOfTLA();
+          }
+          if (i != 0 ) { //HC: not first thread or not first label
+            addOneTokenToTLA(((tlacodeNextLine.length() == 0)? indentSpaces : "") + " \\/ "); 
+          }
+          addLeftParen(stmt.getOrigin());
+          addOneTokenToTLA(disjunct);
+          addRightParen(stmt.getOrigin());
+        }
+    }
+    addRightParen(thread.getOrigin());
+  //  addOneLineOfTLA("");     
+}
     private void GenProcess(AST.Process ast, String context) throws PcalTLAGenException
     {
         currentProcName = ast.name; 
@@ -509,8 +545,10 @@ public class PcalTLAGen
         if (ast.isEq)
         {
             self = ast.id ;
-            selfIsSelf = false;
-            isSet = false;
+           //ZZ Comment selfIsSelf = false;
+           //ZZ Comment isSet = false;
+           self = selfAsExpr();
+           selfIsSelf = true;
         } else {
             self = selfAsExpr();
             selfIsSelf = true;
@@ -520,7 +558,8 @@ public class PcalTLAGen
         {
             nextStepSelf.addElement(ast.name + "(self)");
         } else
-            nextStep.addElement(ast.name);
+           //ZZ Comment nextStep.addElement(ast.name);
+           nextStep.addElement(ast.name+ "(self)"); // ZZ Code
         
         //For Distributed PlusCal
         if(PcalParams.distpcalFlag) {
@@ -563,37 +602,46 @@ public class PcalTLAGen
 
       if (! ParseAlgorithm.omitPC) {
         addLeftParen(ast.getOrigin());
-        String argument = (isSet) ? "(self)" : "";
+        //String argument = (isSet) ? "(self)" : "";//ZZ Comment : Ask Stephan
+        String argument = "(self)";
         StringBuffer buf = new StringBuffer(ast.name + argument + " == ");
         addOneTokenToTLA(buf.toString());
         String indentSpaces = NSpaces(buf.length() + 2);        
         //For Distributed PlusCal
         if(PcalParams.distpcalFlag) {
+            //ZZ Code
+            //psub1(self) == E(self) \/ EXTRA(self)
           for (int j = 0; j < ast.threads.size(); j++) {
             //iterate the threads of each node
             AST.Thread thread = ast.threads.elementAt(j);
-            if (thread.name==""){
-              for (int i = 0; i < thread.body.size(); i++) {
-              AST.LabeledStmt stmt = (AST.LabeledStmt) thread.body.elementAt(i);
-              String disjunct = stmt.label + argument;
-              if (   i != 0 
-                     && tlacodeNextLine.length() + 7 /* the 7 was obtained empirically */
-                     + disjunct.length() > wrapColumn) {
-                endCurrentLineOfTLA();
-              }
-              if (i != 0 || j != 0) { //HC: not first thread or not first label
-                addOneTokenToTLA(((tlacodeNextLine.length() == 0)? indentSpaces : "") + " \\/ "); 
-              }
-              addLeftParen(stmt.getOrigin());
-              addOneTokenToTLA(disjunct);
-              addRightParen(stmt.getOrigin());
-             
-           }
-           }else{
-                 GenReplicateSet(thread, context, ast.name );
-             }
+            if (j == 0){
+                for (int i = 0; i < thread.body.size(); i++) {
+                    AST.LabeledStmt stmt = (AST.LabeledStmt) thread.body.elementAt(i);
+                    String disjunct = stmt.label + argument;
+                    if (   i != 0 
+                           && tlacodeNextLine.length() + 7 
+                           + disjunct.length() > wrapColumn) {
+                      endCurrentLineOfTLA();
+                    }
+                    if (i != 0 || j != 0) { //HC: not first thread or not first label
+                      addOneTokenToTLA(((tlacodeNextLine.length() == 0)? indentSpaces : "") + " \\/ "); 
+                    }
+                    addLeftParen(stmt.getOrigin());
+                    addOneTokenToTLA(disjunct);
+                    addRightParen(stmt.getOrigin());
+                   
+            }} else{
+                   if(j>0){
+                    if (thread.name==""){
+                      GenSubThreadSet(thread, context, ast.name);   
+                 } else{
+                    GenReplicateSet(thread, context, ast.name );
+                }   
+                }
           }
-          varReplicate = 0;
+        }
+          varReplicate = 0; //ZZ Code
+          varSub = 0;       //ZZ Code
           addOneLineOfTLA(""); //ZZ Code
         } else { // end For Distributed PlusCal
           for (int i = 0; i < ast.body.size(); i++) {
@@ -1102,8 +1150,8 @@ public class PcalTLAGen
                  */
                 AST.SingleAssign sass = sF;
                 addLeftParen(sass.getOrigin());
-                TLAExpr sub = AddSubscriptsToExpr(sass.lhs.sub, SubExpr(Self(context)), c);
-                TLAExpr rhs = AddSubscriptsToExpr(sass.rhs, SubExpr(Self(context)), c);
+                TLAExpr sub = AddSubscriptsToExpr(sass.lhs.sub, SubPCExpr(Self(context)), c);
+                TLAExpr rhs = AddSubscriptsToExpr(sass.rhs, SubPCExpr(Self(context)), c);
                 //For Distributed PlusCal
                 // HC: just to handle process local variables in procedures
                 //     use [self] instead of [self][subprocess]
@@ -1113,16 +1161,16 @@ public class PcalTLAGen
                   }
                   // if mp, and inside the procedure, extend the self exp for both pc
                   //   and stack variables
-                  if(mp &&
-                     (sass.lhs.var.equals("stack") || sass.lhs.var.equals("pc")) 
-                     && context.equals("procedure")) {
-                    sub = AddSubscriptsToExpr(sass.lhs.sub, SubExpr(procedureSelfAsExpr()), c);
-                    rhs = AddSubscriptsToExpr(sass.rhs, SubExpr(procedureSelfAsExpr()), c);
+             if(mp && (sass.lhs.var.equals("stack") || sass.lhs.var.equals("pc"))
+                 && context.equals("procedure")) 
+               {  
+                    sub = AddSubscriptsToExpr(sass.lhs.sub, SubPCExpr(procedureSelfAsExpr()), c);
+                    rhs = AddSubscriptsToExpr(sass.rhs, SubPCExpr(procedureSelfAsExpr()), c);
                   }
                 } // end For Distributed PlusCal
                 if (mp
-                        && (sass.lhs.var.equals("pc") || IsProcedureVar(sass.lhs.var) || IsProcessSetVar(sass.lhs.var) || sass.lhs.var
-                                .equals("stack")) )
+                        && (sass.lhs.var.equals("pc") || IsProcedureVar(sass.lhs.var) 
+                        || IsProcessSetVar(sass.lhs.var) || sass.lhs.var.equals("stack")) )
                 {
                     //For Distributed PlusCal 
                     if(PcalParams.distpcalFlag){                	
@@ -1169,8 +1217,8 @@ public class PcalTLAGen
                         addOneLineOfTLA(sb.toString());
                         sb = new StringBuffer(NSpaces(wrapCol));
                     }
-                    sb.append("![<<");
-                    addOneTokenToTLA(sb.toString());
+                  //ZZ Comment  sb.append("![<<");
+                  //ZZ Comment  addOneTokenToTLA(sb.toString());
                    // addLeftParen(self.getOrigin());
                     //For Distributed PlusCal
                     // HC: just to handle process local variables in procedures
@@ -1178,10 +1226,21 @@ public class PcalTLAGen
                       if(context.equals("procedure") && IsProcessSetVar(sass.lhs.var)){
                         addExprToTLA(selfAsExpr());
                       } else {
+                        if(sass.lhs.var.equals("pc")){
+                         sb.append("![<<");
+                         addOneTokenToTLA(sb.toString());
                         addExprToTLA(self);
+                        }else{
+                            sb.append("![");
+                            addOneTokenToTLA(sb.toString());
+                            addExprToTLA(self);
+                            addOneTokenToTLA("]");
+                            
+                        }
                       }
                     } else {
                       addExprToTLA(self);
+                      addOneTokenToTLA("]");
                     } // end For Distributed PlusCal
                     
                    //ZZ Comment addRightParen(self.getOrigin());
@@ -1213,11 +1272,10 @@ public class PcalTLAGen
                     * subscript.  See bug_06_08_03.                      *
                     *****************************************************/
                     if (sv.size() > 0)
-                    {
+                    {   System.out.println("Correct Errors: as sub.getOrgin: "+ sub.getOrigin()+ "and sub: "+sub);
                         addLeftParen(sub.getOrigin());
                         addExprToTLA(sub);
-                        addRightParen(sub.getOrigin());
-                        
+                        addRightParen(sub.getOrigin());                        
 //                        sb.append((String) sv.elementAt(0));
 //                        for (int v = 1; v < sv.size(); v++)
 //                        {
@@ -2934,34 +2992,60 @@ public class PcalTLAGen
                 for (int i = 0; i < pcgroup.size(); i++){
                     is.append(pcgroup.get(i) );
                     if (i != pcgroup.size()-1){
-                         is.append(" \\union ");}
+                         is.append(" \\union ");
+                    }
                 }
               //  addOneLineOfTLA(is.toString());
+
                 is.append(" |-> CASE ");
              } else {
                 // is.append("/\\ pc = [self \\in ProcSet |-> "); //For ZZ Code
                 is.append("/\\ pc = [self \\in ");  //new PC syntax ZZ Code
                  for (int i = 0; i < pcgroup.size(); i++){           
                     is.append(pcgroup.get(i));
+                    if (i != pcgroup.size()-1){
+                        is.append(" \\union ");
+                   }
                 }
                // addOneLineOfTLA(is.toString());
-                is.append("\n |-> CASE ");
+                PcalSymTab.ProcessEntry pe = (PcalSymTab.ProcessEntry) st.processes.elementAt(0);
+                int threadSize = pe.threads.size(); //ZZ Code  
+                AST.Thread t = pe.threads.get(0);
+                AST.LabeledStmt ls = (AST.LabeledStmt) t.body.elementAt(0);         
+                if( threadSize != 1 ){
+                      //ZZ Comment is.append("\n |-> CASE ");
+                 is.append(" |-> CASE ");
+                }
              }
             //ZZ Code
 
             for (int p = 0; p < st.processes.size(); p++)
             {   
                 PcalSymTab.ProcessEntry pe = (PcalSymTab.ProcessEntry) st.processes.elementAt(p);
+                int threadSize = pe.threads.size(); //ZZ Code              
+                
                 for(int i = 0; i < pe.threads.size(); i++) {
                     AST.Thread t = pe.threads.get(i);
                     AST.LabeledStmt ls = (AST.LabeledStmt) t.body.elementAt(0); 
-                    if (countpcIndex == 0){
+                    if (threadSize != 1){
+                        if(countpcIndex == 0 ){
                         is.append(" self \\in "+ pcgroup.get(countpcIndex)+ " -> "+ "\""+ls.label +"\"");
                     }else{
                         is.append("\n\t\t [] self \\in "+ pcgroup.get(countpcIndex)+ " -> "+ "\""+ ls.label+"\"");
                     }
                     countpcIndex = countpcIndex + 1;
-                    }              
+                } else if(st.processes.size() == 1 && threadSize == 1){
+                    is.append(" |-> "+ "\""+ls.label +"\""); 
+                }
+                 else{
+                    if(p==0){
+                    is.append(" self \\in "+ pcgroup.get(countpcIndex)+ " -> "+ "\""+ls.label +"\"");
+                    }else{
+                        is.append("\n\t\t [] self \\in "+ pcgroup.get(countpcIndex)+ " -> "+ "\""+ ls.label+"\""); 
+                    }
+                }
+            }
+
             }
             is.append(" ]");
             addOneLineOfTLA(is.toString());  
@@ -3263,7 +3347,7 @@ public class PcalTLAGen
                 nextSSP.addElement(vec);
                 //ZZ CodeAppend at the end
                   //ZZ Code
-                for (int t = 0; t < p.threads.size();t++){
+                for (int t = 1; t < p.threads.size();t++){
                     AST.Thread r = p.threads.get(t);
                     if (r.name !=""){
                          Vector vecC = new Vector();
@@ -3286,10 +3370,21 @@ public class PcalTLAGen
                           sb.append("(self, i)");
                           vecC.addElement(sb.toString());
                           nextSSP.addElement(vecC);
-                          System.out.println("My Sb Next Value is:  "+nextSSP);
+                        }else{
+                         Vector vecS = new Vector();
+                         sb = new StringBuffer();
+                         sb.append("\\E self \\in ");
+                         sb.append((String) sv.elementAt(0));
+                         sb.append(": ");
+                         varSubNext = varSubNext + 1;
+                         sb.append(p.name+r.name+"sub"+varSubNext);
+                         sb.append("(self)");
+                         vecS.addElement(sb.toString());
+                         nextSSP.addElement(vecS);
                     }
                 }
                 varReplicateNext = 0;
+                varSubNext = 0;
                 //End ZZ Code
             }
 //ZZ Code Start Building 
@@ -3298,7 +3393,7 @@ public class PcalTLAGen
         col = sb.length() + 2;
         for (int i = 0; i < nextS.size(); i++)
         {
-            sb.append((String) nextS.elementAt(i));
+            sb.append((String) nextS.elementAt(i)); //ZZ return here
             addOneLineOfTLA(sb.toString());
 //            tlacode.addElement(sb.toString());
             sb = new StringBuffer(NSpaces(col) + " \\/ ");
@@ -3505,6 +3600,12 @@ public class PcalTLAGen
            for (int i = 0; i < st.processes.size(); i++) {
         	   PcalSymTab.ProcessEntry p = (PcalSymTab.ProcessEntry) st.processes.elementAt(i);
         	   AST.Process pAst = p.ast ;
+               //ZZ Code
+               /*
+               for(int t = 0; t < p.threads.size(); i++) {
+                AST.Thread thread = p.threads.get(i);
+               } */
+               //End ZZ Code
         	   int fairness = pAst.fairness;
         	   if (fairness != AST.UNFAIR_PROC) {
         		   String xf = (fairness == AST.WF_PROC) ? "WF" : "SF";
@@ -3535,12 +3636,16 @@ public class PcalTLAGen
                            prefixBegin = "\\A self \\in ";
                            // For Distributed Pluscal.
                            // HC: doublecheck (seems different from Heba's code
-                           if (PcalParams.distpcalFlag){
+                         //ZZ Comment
+                         /*   if (PcalParams.distpcalFlag){
                              prefixEnd = " : \\A subprocess \\in SubProcSet[self] : ";
                            } else { // end For Distributed PlusCal
-                             prefixEnd = " : ";
-                           }
-                       }
+                            }
+                           */
+                           //ZZ Comment End
+                           prefixEnd = " : "; // ZZ Code
+                           
+                        }
                        String padding = NSpaces(prefixBegin.length());
                        for (int j = 0; j < prefixSize; j++) {
                            String line = (String) pSelf.elementAt(j);
@@ -3549,6 +3654,7 @@ public class PcalTLAGen
                            } else {
                                line = padding + line;
                            }
+                           //ZZ Comment
                            if (j == prefixSize - 1) {
                                line = line + prefixEnd;
                            }
@@ -3942,7 +4048,7 @@ public class PcalTLAGen
         }
         /*   ------------------ end testing --------------------------*/
         return expr;
-    }
+}
 
     /***********************************************************************
      * Given an expression, makes it into a subscript expr.  It is called   *
@@ -3957,7 +4063,48 @@ public class PcalTLAGen
      * from any PCal code.  The new expression is given the same origin as  *
      * the original one.                                                    *
      ***********************************************************************/
-    private static TLAExpr SubExpr(TLAExpr sub)
+   //ZZ Code
+   //pc [<<self>>]
+   private static TLAExpr SubPCExpr(TLAExpr sub)
+   {
+       if (sub != null)
+       { 
+           TLAExpr expr = sub.cloneAndNormalize();
+             // This preserves the origin of the expression
+           for (int i = 0; i < expr.tokens.size(); i++) {
+               Vector tokenVec = (Vector) expr.tokens.elementAt(i);
+               for (int j = 0; j < tokenVec.size(); j++) {
+                  TLAToken tok = (TLAToken) tokenVec.elementAt(j);
+                  tok.column = tok.column + 1;
+               }
+               if (i == 0) {
+                   /*
+                    * Set isAppended field of the "[" and "]" to true iff the first
+                    * token of sub has isAppended field true, which should be the
+                    * case iff it is the "self" token.
+                    */
+                  /*  tokenVec.insertElementAt(
+                         new TLAToken("[", 0, TLAToken.BUILTIN, sub.firstToken().isAppended()),
+                         0);   //pc[self]
+               */  
+                    tokenVec.insertElementAt(
+                         new TLAToken("[<<", 0, TLAToken.BUILTIN, sub.firstToken().isAppended()),
+                         0);  //ZZ Code 
+                         //pc[<<self]
+               }
+           }
+         //  expr.addTokenOffset(
+         //         new TLAToken(">>]", 0, TLAToken.BUILTIN, sub.firstToken().isAppended()), 0); //ZZ Code
+                 
+           return expr;
+       } else {
+           return null;
+       }
+   }
+  
+   //End ZZ Code
+   
+     private static TLAExpr SubExpr(TLAExpr sub)
     {
         if (sub != null)
         { 
@@ -3979,6 +4126,7 @@ public class PcalTLAGen
                           new TLAToken("[", 0, TLAToken.BUILTIN, sub.firstToken().isAppended()),
                           0);   //pc[self]
                 */  
+
                      tokenVec.insertElementAt(
                           new TLAToken("[<<", 0, TLAToken.BUILTIN, sub.firstToken().isAppended()),
                           0);  //ZZ Code 
@@ -3986,7 +4134,7 @@ public class PcalTLAGen
                 }
             }
           //  expr.addTokenOffset(
-          //         new TLAToken(">>]", 0, TLAToken.BUILTIN, sub.firstToken().isAppended()), 0); //ZZ Code
+           //       new TLAToken("]", 0, TLAToken.BUILTIN, sub.firstToken().isAppended()), 0); //ZZ Code
                   
             return expr;
         } else {
@@ -4067,6 +4215,23 @@ public class PcalTLAGen
         expr.normalize();
         return expr ;
     } // end For Distributed PlusCal
+//ZZ Code
+private static TLAExpr  pcSelfAsExpr() {
+    //we can't add a sub-expression here since we are not handling a lhs of an assignment object
+    TLAToken selfToken = new TLAToken("<<self", 0, TLAToken.IDENT, true);
+    Vector tokenVec = new Vector();
+
+    tokenVec.addElement(selfToken);
+
+    Vector tokens = new Vector();
+    tokens.addElement(tokenVec);
+
+    TLAExpr expr = new TLAExpr(tokens);
+    expr.normalize();
+    return expr ;
+} 
+
+//End ZZ Code
 
     private static TLAExpr  selfAsExpr() {
         /*

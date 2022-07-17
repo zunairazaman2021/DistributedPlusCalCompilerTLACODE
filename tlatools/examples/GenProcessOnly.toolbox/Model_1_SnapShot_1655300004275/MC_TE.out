@@ -1,0 +1,408 @@
+@!@!@STARTMSG 2262:0 @!@!@
+TLC2 Version 2.16 of 31 December 2020 (rev: cdddf55)
+@!@!@ENDMSG 2262 @!@!@
+@!@!@STARTMSG 2187:0 @!@!@
+Running breadth-first search Model-Checking with fp 11 and seed -5490612526758821932 with 2 workers on 4 cores with 1175MB heap and 2641MB offheap memory [pid: 10524] (Windows 10 10.0 amd64, AdoptOpenJDK 14.0.1 x86_64, OffHeapDiskFPSet, DiskStateQueue).
+@!@!@ENDMSG 2187 @!@!@
+@!@!@STARTMSG 2220:0 @!@!@
+Starting SANY...
+@!@!@ENDMSG 2220 @!@!@
+Parsing file C:\Users\zunai\OneDrive\Desktop\DistributedPlusCal-newrelease\tlatools\examples\GenProcessOnly.toolbox\Model_1\MC.tla
+Parsing file C:\Users\zunai\OneDrive\Desktop\DistributedPlusCal-newrelease\tlatools\examples\GenProcessOnly.toolbox\Model_1\GenProcessOnly.tla
+
+Unrecoverable error:
+ -- Command-line error: Unknown or illegal option in options statement: -distpcal..
+
+
+Unrecoverable error:
+ -- Expected "end" but found "begin"
+    line 18, column 1.
+
+!! WARNING: The PlusCal algorithm and its TLA+ translation in module GenProcessOnly filename since the last translation.
+Parsing file C:\Users\zunai\Music\LORIAINTERNWORK\TLAToolbox-1.7.1-win32.win32.x86_64\toolbox\plugins\org.lamport.tlatools_1.0.0.202012311918\tla2sany\StandardModules\TLC.tla
+Parsing file C:\Users\zunai\Music\LORIAINTERNWORK\TLAToolbox-1.7.1-win32.win32.x86_64\toolbox\plugins\org.lamport.tlatools_1.0.0.202012311918\tla2sany\StandardModules\Naturals.tla
+Parsing file C:\Users\zunai\Music\LORIAINTERNWORK\TLAToolbox-1.7.1-win32.win32.x86_64\toolbox\plugins\org.lamport.tlatools_1.0.0.202012311918\tla2sany\StandardModules\Integers.tla
+Parsing file C:\Users\zunai\Music\LORIAINTERNWORK\TLAToolbox-1.7.1-win32.win32.x86_64\toolbox\plugins\org.lamport.tlatools_1.0.0.202012311918\tla2sany\StandardModules\Sequences.tla
+Parsing file C:\Users\zunai\Music\LORIAINTERNWORK\TLAToolbox-1.7.1-win32.win32.x86_64\toolbox\plugins\org.lamport.tlatools_1.0.0.202012311918\tla2sany\StandardModules\FiniteSets.tla
+Semantic processing of module Naturals
+Semantic processing of module Sequences
+Semantic processing of module FiniteSets
+Semantic processing of module TLC
+Semantic processing of module Integers
+Semantic processing of module GenProcessOnly
+Semantic processing of module MC
+@!@!@STARTMSG 2219:0 @!@!@
+SANY finished.
+@!@!@ENDMSG 2219 @!@!@
+@!@!@STARTMSG 2185:0 @!@!@
+Starting... (2022-06-15 13:33:19)
+@!@!@ENDMSG 2185 @!@!@
+@!@!@STARTMSG 2189:0 @!@!@
+Computing initial states...
+@!@!@ENDMSG 2189 @!@!@
+@!@!@STARTMSG 2190:0 @!@!@
+Finished computing initial states: 1 distinct state generated at 2022-06-15 13:33:20.
+@!@!@ENDMSG 2190 @!@!@
+@!@!@STARTMSG 2114:1 @!@!@
+Deadlock reached.
+@!@!@ENDMSG 2114 @!@!@
+@!@!@STARTMSG 2121:1 @!@!@
+The behavior up to this point is:
+@!@!@ENDMSG 2121 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+1: <Initial predicate>
+/\ x = 0
+/\ pc = ( <<1>> :> "A" @@
+  <<2>> :> "A" @@
+  <<1, 1, 4>> :> "B" @@
+  <<1, 1, 5>> :> "B" @@
+  <<1, 2, 4>> :> "BX" @@
+  <<1, 2, 5>> :> "BX" @@
+  <<2, 1, 4>> :> "B" @@
+  <<2, 1, 5>> :> "B" @@
+  <<2, 2, 4>> :> "BX" @@
+  <<2, 2, 5>> :> "BX" )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+2: <A line 83, col 12 to line 85, col 51 of module GenProcessOnly>
+/\ x = 1
+/\ pc = ( <<1>> :> "ExA" @@
+  <<2>> :> "A" @@
+  <<1, 1, 4>> :> "B" @@
+  <<1, 1, 5>> :> "B" @@
+  <<1, 2, 4>> :> "BX" @@
+  <<1, 2, 5>> :> "BX" @@
+  <<2, 1, 4>> :> "B" @@
+  <<2, 1, 5>> :> "B" @@
+  <<2, 2, 4>> :> "BX" @@
+  <<2, 2, 5>> :> "BX" )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+3: <ExA line 87, col 14 to line 89, col 54 of module GenProcessOnly>
+/\ x = 1
+/\ pc = ( <<1>> :> "Done" @@
+  <<2>> :> "A" @@
+  <<1, 1, 4>> :> "B" @@
+  <<1, 1, 5>> :> "B" @@
+  <<1, 2, 4>> :> "BX" @@
+  <<1, 2, 5>> :> "BX" @@
+  <<2, 1, 4>> :> "B" @@
+  <<2, 1, 5>> :> "B" @@
+  <<2, 2, 4>> :> "BX" @@
+  <<2, 2, 5>> :> "BX" )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+4: <A line 83, col 12 to line 85, col 51 of module GenProcessOnly>
+/\ x = 2
+/\ pc = ( <<1>> :> "Done" @@
+  <<2>> :> "ExA" @@
+  <<1, 1, 4>> :> "B" @@
+  <<1, 1, 5>> :> "B" @@
+  <<1, 2, 4>> :> "BX" @@
+  <<1, 2, 5>> :> "BX" @@
+  <<2, 1, 4>> :> "B" @@
+  <<2, 1, 5>> :> "B" @@
+  <<2, 2, 4>> :> "BX" @@
+  <<2, 2, 5>> :> "BX" )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+5: <ExA line 87, col 14 to line 89, col 54 of module GenProcessOnly>
+/\ x = 1
+/\ pc = ( <<1>> :> "Done" @@
+  <<2>> :> "Done" @@
+  <<1, 1, 4>> :> "B" @@
+  <<1, 1, 5>> :> "B" @@
+  <<1, 2, 4>> :> "BX" @@
+  <<1, 2, 5>> :> "BX" @@
+  <<2, 1, 4>> :> "B" @@
+  <<2, 1, 5>> :> "B" @@
+  <<2, 2, 4>> :> "BX" @@
+  <<2, 2, 5>> :> "BX" )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+6: <B line 91, col 14 to line 93, col 60 of module GenProcessOnly>
+/\ x = 2
+/\ pc = ( <<1>> :> "Done" @@
+  <<2>> :> "Done" @@
+  <<1, 1, 4>> :> "EXBB" @@
+  <<1, 1, 5>> :> "B" @@
+  <<1, 2, 4>> :> "BX" @@
+  <<1, 2, 5>> :> "BX" @@
+  <<2, 1, 4>> :> "B" @@
+  <<2, 1, 5>> :> "B" @@
+  <<2, 2, 4>> :> "BX" @@
+  <<2, 2, 5>> :> "BX" )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+7: <EXBB line 95, col 17 to line 97, col 63 of module GenProcessOnly>
+/\ x = 0
+/\ pc = ( <<1>> :> "Done" @@
+  <<2>> :> "Done" @@
+  <<1, 1, 4>> :> "Done" @@
+  <<1, 1, 5>> :> "B" @@
+  <<1, 2, 4>> :> "BX" @@
+  <<1, 2, 5>> :> "BX" @@
+  <<2, 1, 4>> :> "B" @@
+  <<2, 1, 5>> :> "B" @@
+  <<2, 2, 4>> :> "BX" @@
+  <<2, 2, 5>> :> "BX" )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+8: <B line 91, col 14 to line 93, col 60 of module GenProcessOnly>
+/\ x = 1
+/\ pc = ( <<1>> :> "Done" @@
+  <<2>> :> "Done" @@
+  <<1, 1, 4>> :> "Done" @@
+  <<1, 1, 5>> :> "B" @@
+  <<1, 2, 4>> :> "BX" @@
+  <<1, 2, 5>> :> "BX" @@
+  <<2, 1, 4>> :> "EXBB" @@
+  <<2, 1, 5>> :> "B" @@
+  <<2, 2, 4>> :> "BX" @@
+  <<2, 2, 5>> :> "BX" )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+9: <EXBB line 95, col 17 to line 97, col 63 of module GenProcessOnly>
+/\ x = 0
+/\ pc = ( <<1>> :> "Done" @@
+  <<2>> :> "Done" @@
+  <<1, 1, 4>> :> "Done" @@
+  <<1, 1, 5>> :> "B" @@
+  <<1, 2, 4>> :> "BX" @@
+  <<1, 2, 5>> :> "BX" @@
+  <<2, 1, 4>> :> "Done" @@
+  <<2, 1, 5>> :> "B" @@
+  <<2, 2, 4>> :> "BX" @@
+  <<2, 2, 5>> :> "BX" )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+10: <B line 91, col 14 to line 93, col 60 of module GenProcessOnly>
+/\ x = 1
+/\ pc = ( <<1>> :> "Done" @@
+  <<2>> :> "Done" @@
+  <<1, 1, 4>> :> "Done" @@
+  <<1, 1, 5>> :> "EXBB" @@
+  <<1, 2, 4>> :> "BX" @@
+  <<1, 2, 5>> :> "BX" @@
+  <<2, 1, 4>> :> "Done" @@
+  <<2, 1, 5>> :> "B" @@
+  <<2, 2, 4>> :> "BX" @@
+  <<2, 2, 5>> :> "BX" )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+11: <EXBB line 95, col 17 to line 97, col 63 of module GenProcessOnly>
+/\ x = 0
+/\ pc = ( <<1>> :> "Done" @@
+  <<2>> :> "Done" @@
+  <<1, 1, 4>> :> "Done" @@
+  <<1, 1, 5>> :> "Done" @@
+  <<1, 2, 4>> :> "BX" @@
+  <<1, 2, 5>> :> "BX" @@
+  <<2, 1, 4>> :> "Done" @@
+  <<2, 1, 5>> :> "B" @@
+  <<2, 2, 4>> :> "BX" @@
+  <<2, 2, 5>> :> "BX" )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+12: <B line 91, col 14 to line 93, col 60 of module GenProcessOnly>
+/\ x = 1
+/\ pc = ( <<1>> :> "Done" @@
+  <<2>> :> "Done" @@
+  <<1, 1, 4>> :> "Done" @@
+  <<1, 1, 5>> :> "Done" @@
+  <<1, 2, 4>> :> "BX" @@
+  <<1, 2, 5>> :> "BX" @@
+  <<2, 1, 4>> :> "Done" @@
+  <<2, 1, 5>> :> "EXBB" @@
+  <<2, 2, 4>> :> "BX" @@
+  <<2, 2, 5>> :> "BX" )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+13: <BX line 99, col 15 to line 101, col 61 of module GenProcessOnly>
+/\ x = 2
+/\ pc = ( <<1>> :> "Done" @@
+  <<2>> :> "Done" @@
+  <<1, 1, 4>> :> "Done" @@
+  <<1, 1, 5>> :> "Done" @@
+  <<1, 2, 4>> :> "BX" @@
+  <<1, 2, 5>> :> "BX" @@
+  <<2, 1, 4>> :> "Done" @@
+  <<2, 1, 5>> :> "EXBB" @@
+  <<2, 2, 4>> :> "Done" @@
+  <<2, 2, 5>> :> "BX" )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+14: <EXBB line 95, col 17 to line 97, col 63 of module GenProcessOnly>
+/\ x = 0
+/\ pc = ( <<1>> :> "Done" @@
+  <<2>> :> "Done" @@
+  <<1, 1, 4>> :> "Done" @@
+  <<1, 1, 5>> :> "Done" @@
+  <<1, 2, 4>> :> "BX" @@
+  <<1, 2, 5>> :> "BX" @@
+  <<2, 1, 4>> :> "Done" @@
+  <<2, 1, 5>> :> "Done" @@
+  <<2, 2, 4>> :> "Done" @@
+  <<2, 2, 5>> :> "BX" )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+15: <BX line 99, col 15 to line 101, col 61 of module GenProcessOnly>
+/\ x = 1
+/\ pc = ( <<1>> :> "Done" @@
+  <<2>> :> "Done" @@
+  <<1, 1, 4>> :> "Done" @@
+  <<1, 1, 5>> :> "Done" @@
+  <<1, 2, 4>> :> "BX" @@
+  <<1, 2, 5>> :> "Done" @@
+  <<2, 1, 4>> :> "Done" @@
+  <<2, 1, 5>> :> "Done" @@
+  <<2, 2, 4>> :> "Done" @@
+  <<2, 2, 5>> :> "BX" )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+16: <BX line 99, col 15 to line 101, col 61 of module GenProcessOnly>
+/\ x = 2
+/\ pc = ( <<1>> :> "Done" @@
+  <<2>> :> "Done" @@
+  <<1, 1, 4>> :> "Done" @@
+  <<1, 1, 5>> :> "Done" @@
+  <<1, 2, 4>> :> "Done" @@
+  <<1, 2, 5>> :> "Done" @@
+  <<2, 1, 4>> :> "Done" @@
+  <<2, 1, 5>> :> "Done" @@
+  <<2, 2, 4>> :> "Done" @@
+  <<2, 2, 5>> :> "BX" )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+17: <BX line 99, col 15 to line 101, col 61 of module GenProcessOnly>
+/\ x = 3
+/\ pc = ( <<1>> :> "Done" @@
+  <<2>> :> "Done" @@
+  <<1, 1, 4>> :> "Done" @@
+  <<1, 1, 5>> :> "Done" @@
+  <<1, 2, 4>> :> "Done" @@
+  <<1, 2, 5>> :> "Done" @@
+  <<2, 1, 4>> :> "Done" @@
+  <<2, 1, 5>> :> "Done" @@
+  <<2, 2, 4>> :> "Done" @@
+  <<2, 2, 5>> :> "Done" )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2201:0 @!@!@
+The coverage statistics at 2022-06-15 13:33:22
+@!@!@ENDMSG 2201 @!@!@
+@!@!@STARTMSG 2773:0 @!@!@
+<Init line 73, col 1 to line 73, col 4 of module GenProcessOnly>: 2:2
+@!@!@ENDMSG 2773 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 74, col 9 to line 81, col 54 of module GenProcessOnly: 2
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<A line 83, col 1 to line 83, col 7 of module GenProcessOnly>: 132:33756
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 83, col 15 to line 83, col 33 of module GenProcessOnly: 150546
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 83, col 15 to line 83, col 27 of module GenProcessOnly: 116790
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 84, col 15 to line 84, col 22 of module GenProcessOnly: 33756
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 85, col 15 to line 85, col 51 of module GenProcessOnly: 33756
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<ExA line 87, col 1 to line 87, col 9 of module GenProcessOnly>: 1340:40503
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 87, col 17 to line 87, col 37 of module GenProcessOnly: 157291
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 87, col 17 to line 87, col 29 of module GenProcessOnly: 116788
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 88, col 17 to line 88, col 22 of module GenProcessOnly: 40503
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 89, col 17 to line 89, col 54 of module GenProcessOnly: 40503
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<B line 91, col 1 to line 91, col 9 of module GenProcessOnly>: 1661:69444
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 91, col 17 to line 91, col 41 of module GenProcessOnly: 303000
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 91, col 17 to line 91, col 35 of module GenProcessOnly: 233556
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 92, col 17 to line 92, col 24 of module GenProcessOnly: 69444
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 93, col 17 to line 93, col 60 of module GenProcessOnly: 69444
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<EXBB line 95, col 1 to line 95, col 12 of module GenProcessOnly>: 9360:82945
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 95, col 20 to line 95, col 47 of module GenProcessOnly: 316497
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 95, col 20 to line 95, col 38 of module GenProcessOnly: 233552
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 96, col 20 to line 96, col 25 of module GenProcessOnly: 82945
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 97, col 20 to line 97, col 63 of module GenProcessOnly: 82945
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<BX line 99, col 1 to line 99, col 10 of module GenProcessOnly>: 45905:106162
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 99, col 18 to line 99, col 43 of module GenProcessOnly: 339692
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 99, col 18 to line 99, col 36 of module GenProcessOnly: 233530
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 100, col 18 to line 100, col 25 of module GenProcessOnly: 106162
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 101, col 18 to line 101, col 61 of module GenProcessOnly: 106162
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2202:0 @!@!@
+End of statistics.
+@!@!@ENDMSG 2202 @!@!@
+@!@!@STARTMSG 2200:0 @!@!@
+Progress(17) at 2022-06-15 13:33:22: 332,792 states generated (4,984,403 s/min), 58,399 distinct states found (874,672 ds/min), 19 states left on queue.
+@!@!@ENDMSG 2200 @!@!@
+@!@!@STARTMSG 2199:0 @!@!@
+332792 states generated, 58399 distinct states found, 19 states left on queue.
+@!@!@ENDMSG 2199 @!@!@
+@!@!@STARTMSG 2194:0 @!@!@
+The depth of the complete state graph search is 17.
+@!@!@ENDMSG 2194 @!@!@
+@!@!@STARTMSG 2268:0 @!@!@
+The average outdegree of the complete state graph is 1 (minimum is 0, the maximum 10 and the 95th percentile is 4).
+@!@!@ENDMSG 2268 @!@!@
+@!@!@STARTMSG 2186:0 @!@!@
+Finished in 4019ms at (2022-06-15 13:33:22)
+@!@!@ENDMSG 2186 @!@!@
